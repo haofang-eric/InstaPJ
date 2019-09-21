@@ -1,0 +1,1 @@
+web: gunicorn InstaPJ.wsgi --log-file -

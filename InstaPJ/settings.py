@@ -25,7 +25,7 @@ SECRET_KEY = '3n#ki4(j!4_gyg17ds6jdub^gnx_y01&eoqdaa-ra6cdb4mss!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Insta',
     'imagekit',
+    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'InstaPJ.urls'
@@ -128,3 +130,5 @@ LOGIN_REDIRECT_URL = 'posts'
 LOGOUT_REDIRECT_URL = 'posts'
 
 AUTH_USER_MODEL = 'Insta.InstaUser'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
